@@ -1,6 +1,6 @@
 # Description: This script clones a GitHub repository and executes a PowerShell script from it.
 # REPO:
-$url = "https://github.com/V1lTh/Windows-Comprehensive-Security-Policy-Automation/archive/refs/heads/main.zip"
+$url = "https://github.com/V1lTh/WCSPA/archive/refs/heads/main.zip"
 $path = "$HOME\Desktop"
 $output = "$path\MinClara_($(Get-Date -Format 'yyyy''-''MM''-''dd''-''HH''-''mm')).zip"
 function Save-GitHubRepository
@@ -13,8 +13,8 @@ function Save-GitHubRepository
 }
 try {
     Save-GitHubRepository
-    $script_path = "$path\Windows-Comprehensive-Security-Policy-Automation-main\SetPolicyWindows\Client\MinClara\runASadmin.bat"
-    $path_folder = "$path\Windows-Comprehensive-Security-Policy-Automation-main\"
+    $script_path = "$path\WCSPA-main\SetPolicyWindows\Client\MinClara\runASadmin.bat"
+    $path_folder = "$path\WCSPA-main\"
     if (Test-Path $script_path) {
         Start-Process -FilePath $script_path -Verb RunAs
     } else {

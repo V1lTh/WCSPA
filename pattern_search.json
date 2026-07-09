@@ -1,0 +1,1427 @@
+[
+  {
+    "file": "analysis_static.ps1",
+    "line": 2,
+    "text": "    'ExecutionPolicy',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 3,
+    "text": "    'Bypass',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 4,
+    "text": "    'RemoteSigned',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 5,
+    "text": "    'Start-Process',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 6,
+    "text": "    'Invoke-WebRequest',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 7,
+    "text": "    'Invoke-RestMethod',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 8,
+    "text": "    'Remove-Item',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 9,
+    "text": "    'Expand-Archive',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 10,
+    "text": "    'Restart',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 11,
+    "text": "    'shutdown',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 12,
+    "text": "    'secedit',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 13,
+    "text": "    'netsh',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 14,
+    "text": "    'gpupdate',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 15,
+    "text": "    'Set-ItemProperty',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 16,
+    "text": "    'Set-NetFirewallProfile',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 17,
+    "text": "    'Set-MpPreference',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 18,
+    "text": "    'Start-Service',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 19,
+    "text": "    'auditpol',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 20,
+    "text": "    'Set-Service',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 21,
+    "text": "    'Set-ExecutionPolicy',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 22,
+    "text": "    'New-Item',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 23,
+    "text": "    'Get-ChildItem',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 24,
+    "text": "    'Start-Sleep',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 25,
+    "text": "    'Read-Host',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 26,
+    "text": "    'Set-Location',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 27,
+    "text": "    'Invoke-Expression',"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 28,
+    "text": "    'powershell.exe'"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 32,
+    "text": "Get-ChildItem -Path . -Recurse -File | Where-Object { $_.Name -match '\\.(ps1|bat|cmd)$' } | ForEach-Object {"
+  },
+  {
+    "file": "analysis_static.ps1",
+    "line": 41,
+    "text": "Get-ChildItem -Path . -Recurse -File | Where-Object { $_.Name -match '\\.ps1$' } | ForEach-Object {"
+  },
+  {
+    "file": "callfiles.ps1",
+    "line": 10,
+    "text": "    Expand-Archive $output $path -Force"
+  },
+  {
+    "file": "callfiles.ps1",
+    "line": 11,
+    "text": "    Remove-Item $output -Force"
+  },
+  {
+    "file": "callfiles.ps1",
+    "line": 19,
+    "text": "        Start-Process -FilePath $script_path -Verb RunAs"
+  },
+  {
+    "file": "callfiles.ps1",
+    "line": 29,
+    "text": "    Remove-Item $path_folder -Force -Recurse"
+  },
+  {
+    "file": "callfiles.ps1",
+    "line": 30,
+    "text": "    shutdown /r /t 0"
+  },
+  {
+    "file": "runASadmin.bat",
+    "line": 4,
+    "text": "powershell.exe -ExecutionPolicy Bypass -File \"%scriptPath%\""
+  },
+  {
+    "file": "PolicyAnalizer\\AErunASadmin.bat",
+    "line": 4,
+    "text": "powershell.exe -ExecutionPolicy RemoteSigned -File \"%scriptPath%\""
+  },
+  {
+    "file": "PolicyAnalizer\\AnalyzerExport.ps1",
+    "line": 57,
+    "text": "        $latestRelease = Invoke-RestMethod -Uri \"https://api.github.com/repos/PowerShell/PowerShell/releases/latest\""
+  },
+  {
+    "file": "PolicyAnalizer\\AnalyzerExport.ps1",
+    "line": 71,
+    "text": "            Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath"
+  },
+  {
+    "file": "PolicyAnalizer\\AnalyzerExport.ps1",
+    "line": 74,
+    "text": "            Start-Process msiexec.exe -Wait -ArgumentList \"/i `\"$installerPath`\" /qn\""
+  },
+  {
+    "file": "PolicyAnalizer\\AnalyzerExport.ps1",
+    "line": 118,
+    "text": "        New-Item -Path $exportPath -ItemType Directory | Out-Null"
+  },
+  {
+    "file": "PolicyAnalizer\\AnalyzerExport.ps1",
+    "line": 140,
+    "text": "        $files = Get-ChildItem \"$policyRules\\*.PolicyRules\""
+  },
+  {
+    "file": "PolicyAnalizer\\AnalyzerExport.ps1",
+    "line": 148,
+    "text": "        $selected = Read-Host \"Selecciona archivo por número\""
+  },
+  {
+    "file": "PolicyAnalizer\\AnalyzerExport.ps1",
+    "line": 174,
+    "text": "        Get-ChildItem -Path $backupDir,$exportDir -Directory | Remove-Item -Recurse -Force -Verbose"
+  },
+  {
+    "file": "PolicyAnalizer\\AnalyzerExport.ps1",
+    "line": 203,
+    "text": "        $option = Read-Host \"Selecciona una opcion\""
+  },
+  {
+    "file": "PolicyAnalizer\\PA40\\Merge-PolicyRules.ps1",
+    "line": 16,
+    "text": "Merge-PolicyRules.ps1 (Get-ChildItem *.PolicyRules) | Out-File -Encoding utf8 -FilePath .\\AllOfThem.PolicyRules"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 2,
+    "text": "Start-Sleep 1"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 10,
+    "text": "Start-Sleep 2"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 15,
+    "text": "$opcion = Read-Host \"Opcion: 1, 2\""
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 153,
+    "text": "        Start-Sleep 1"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 199,
+    "text": "                Start-Sleep 2"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 206,
+    "text": "                Start-Sleep 2"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 220,
+    "text": "                            $package | Remove-WindowsPackage -Online -NoRestart -ErrorAction SilentlyContinue"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 245,
+    "text": "                Start-Sleep 1"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 249,
+    "text": "                Start-Sleep 1"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 251,
+    "text": "                secedit /configure /quiet /db \".\\servicios_windows.sdb\" /cfg $Plantilla /overwrite /log \".\\servicios_windows.log\""
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 257,
+    "text": "            Start-Sleep 1"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 261,
+    "text": "                Start-Sleep 1"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 264,
+    "text": "                Set-Location $currentPath"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 266,
+    "text": "                Start-Process -FilePath \"xcopy\" -ArgumentList \"/E /H /R /I /Y `\".\\GroupPolicy\\*.*`\" `\"C:\\Windows\\system32\\GroupPolicy`\"\" -NoNewWindow -Wait"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 267,
+    "text": "                gpupdate /force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 273,
+    "text": "            Start-Sleep 1"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 276,
+    "text": "                Start-Sleep 1"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 281,
+    "text": "                    netsh advfirewall import \"./$file_firewall\""
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 287,
+    "text": "                Start-Sleep 1"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 290,
+    "text": "                Start-Sleep 1"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 293,
+    "text": "                $x = Read-Host \"Opcion: 1, 2\""
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 300,
+    "text": "                            secedit /configure /quiet /db \"$currentPath\\CCN-STIC-599B23 Cliente Independiente.sdb\" /cfg $plant /overwrite /log \"$currentPath\\CCN-STIC-599B23 Cliente Independiente.log\""
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 318,
+    "text": "                            New-Item -Path $registryPath -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 321,
+    "text": "                        Set-ItemProperty -Path $registryPath -Name \"ScreenSaveActive\" -Value \"1\" -Type String"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 323,
+    "text": "                        Set-ItemProperty -Path $registryPath -Name \"ScreenSaverIsSecure\" -Value \"1\" -Type String"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 357,
+    "text": "                                \"vmicshutdown\","
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 394,
+    "text": "                                    Set-Service -Name \"$service\" -StartupType Disabled"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 427,
+    "text": "                                        Set-Service -Name \"$service\" -StartupType Automatic"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 438,
+    "text": "                                    Set-Service -Name \"$service\" -StartupType Manual"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 477,
+    "text": "                                        \"vmicshutdown\","
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 510,
+    "text": "                                            Set-Service -Name \"$service\" -StartupType Disabled"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 544,
+    "text": "                                            Set-Service -Name \"$service\" -StartupType Automatic"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 555,
+    "text": "                                            Set-Service -Name \"$service\" -StartupType Manual"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 572,
+    "text": "                            New-Item -Path \"HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 575,
+    "text": "                        Set-ItemProperty -Path \"HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" -Name \"legalnoticecaption\" -Value \"Acceso a los sistemas de SOFTECA.\" -Type String"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 577,
+    "text": "                            New-Item -Path \"HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 579,
+    "text": "                        Set-ItemProperty -Path \"HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" -Name \"legalnoticetext\" -Value \" --TEXTO--  \" -Type String #>"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 582,
+    "text": "            Start-Sleep 1"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 583,
+    "text": "            $shutdown = Read-Host \"Reiniciar? (S/N)\""
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 584,
+    "text": "            switch ($shutdown) {"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 585,
+    "text": "                \"S\" { shutdown /r /t 0 }"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 586,
+    "text": "                \"s\" { shutdown /r /t 0 }"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\clara100.ps1",
+    "line": 589,
+    "text": "                    Start-Sleep 2"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\FullClara\\runASadmin.bat",
+    "line": 4,
+    "text": "powershell.exe -ExecutionPolicy Bypass -File \"%scriptPath%\""
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\MinClara\\clara100.ps1",
+    "line": 18,
+    "text": "                    secedit /configure /quiet /db \"$currentPath\\servicios_windows.sdb\" /cfg $Plantilla"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\MinClara\\clara100.ps1",
+    "line": 19,
+    "text": "                        <# secedit /configure: Aplica configuraciones de seguridad desde una base de datos."
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\MinClara\\clara100.ps1",
+    "line": 41,
+    "text": "                    Start-Process -FilePath \"xcopy\" -ArgumentList \"/E /H /R /I /Y `\"$currentPath\\GroupPolicy\\*.*`\" `\"C:\\Windows\\system32\\GroupPolicy`\"\" -NoNewWindow -Wait"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\MinClara\\clara100.ps1",
+    "line": 51,
+    "text": "                    gpupdate /force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\MinClara\\clara100.ps1",
+    "line": 64,
+    "text": "                    netsh advfirewall import \"$file_firewall\""
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\MinClara\\clara100.ps1",
+    "line": 78,
+    "text": "                            secedit /configure /quiet /db \"$currentPath\\CCN-STIC-599B23 Cliente Independiente.sdb\" /cfg $plant"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\MinClara\\clara100.ps1",
+    "line": 92,
+    "text": "                            New-Item -Path $registryPath -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\MinClara\\clara100.ps1",
+    "line": 95,
+    "text": "                        Set-ItemProperty -Path $registryPath -Name \"ScreenSaveActive\" -Value \"1\" -Type String"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\MinClara\\clara100.ps1",
+    "line": 97,
+    "text": "                        Set-ItemProperty -Path $registryPath -Name \"ScreenSaverIsSecure\" -Value \"1\" -Type String"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\MinClara\\clara100.ps1",
+    "line": 131,
+    "text": "                                \"vmicshutdown\","
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\MinClara\\clara100.ps1",
+    "line": 168,
+    "text": "                                    Set-Service -Name \"$service\" -StartupType Disabled"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\MinClara\\clara100.ps1",
+    "line": 201,
+    "text": "                                        Set-Service -Name \"$service\" -StartupType Automatic"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\MinClara\\clara100.ps1",
+    "line": 212,
+    "text": "                                    Set-Service -Name \"$service\" -StartupType Manual"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\MinClara\\clara100.ps1",
+    "line": 251,
+    "text": "                                        \"vmicshutdown\","
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\MinClara\\clara100.ps1",
+    "line": 284,
+    "text": "                                            Set-Service -Name \"$service\" -StartupType Disabled"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\MinClara\\clara100.ps1",
+    "line": 318,
+    "text": "                                            Set-Service -Name \"$service\" -StartupType Automatic"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\MinClara\\clara100.ps1",
+    "line": 329,
+    "text": "                                            Set-Service -Name \"$service\" -StartupType Manual"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\MinClara\\clara100.ps1",
+    "line": 352,
+    "text": "                        New-Item -Path \"$path\" -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\MinClara\\clara100.ps1",
+    "line": 354,
+    "text": "                    Set-ItemProperty -Path \"$path\" -Name \"legalnoticecaption\" -Value \" --TEXTO-- \" -Type String -Force # TITULO"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\MinClara\\clara100.ps1",
+    "line": 355,
+    "text": "                    Set-ItemProperty -Path \"$path\" -Name \"legalnoticetext\" -Value \" --TEXTO--  \" -Type String  # RESTO DEL TEXTO"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\MinClara\\clara100.ps1",
+    "line": 360,
+    "text": "                        New-Item -Path $registryPath -Force }"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\MinClara\\clara100.ps1",
+    "line": 362,
+    "text": "                        Set-ItemProperty -Path $registryPath -Name 'DisplayLastLogonInfo' -Value 1 -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\MinClara\\clara100.ps1",
+    "line": 378,
+    "text": "        Start-Sleep 2"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\MinClara\\runASadmin.bat",
+    "line": 4,
+    "text": "powershell.exe -ExecutionPolicy RemoteSigned -File \"%scriptPath%\""
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\Navegadores\\navchrome.ps1",
+    "line": 37,
+    "text": "            Remove-Item -Path $path -Recurse -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\Navegadores\\navchrome.ps1",
+    "line": 43,
+    "text": "                New-Item -Path \"$path\" -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\Navegadores\\navchrome.ps1",
+    "line": 102,
+    "text": "            New-Item -Path $path -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\Navegadores\\navchrome.ps1",
+    "line": 110,
+    "text": "                Set-ItemProperty -Path $path -Name $name -Value ([Convert]::ToInt32($value)) -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\Navegadores\\navchrome.ps1",
+    "line": 113,
+    "text": "                Set-ItemProperty -Path $path -Name $name -Value $value -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\Navegadores\\navchrome.ps1",
+    "line": 116,
+    "text": "                Set-ItemProperty -Path $path -Name $name -Value $value -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\Navegadores\\navedge.ps1",
+    "line": 36,
+    "text": "            Remove-Item -Path $path -Recurse -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\Navegadores\\navedge.ps1",
+    "line": 42,
+    "text": "                New-Item -Path \"$path\" -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\Navegadores\\navedge.ps1",
+    "line": 95,
+    "text": "            New-Item -Path $path -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\Navegadores\\navedge.ps1",
+    "line": 103,
+    "text": "                Set-ItemProperty -Path $path -Name $name -Value ([Convert]::ToInt32($value)) -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\Navegadores\\navedge.ps1",
+    "line": 106,
+    "text": "                Set-ItemProperty -Path $path -Name $name -Value $value -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\Navegadores\\navedge.ps1",
+    "line": 109,
+    "text": "                Set-ItemProperty -Path $path -Name $name -Value $value -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\Navegadores\\navfirefox.ps1",
+    "line": 37,
+    "text": "            Remove-Item -Path $path -Recurse -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\Navegadores\\navfirefox.ps1",
+    "line": 43,
+    "text": "                New-Item -Path \"$path\" -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\Navegadores\\navfirefox.ps1",
+    "line": 72,
+    "text": "            New-Item -Path $path -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\Navegadores\\navfirefox.ps1",
+    "line": 80,
+    "text": "                Set-ItemProperty -Path $path -Name $name -Value ([Convert]::ToInt32($value)) -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\Navegadores\\navfirefox.ps1",
+    "line": 83,
+    "text": "                Set-ItemProperty -Path $path -Name $name -Value $value -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\Navegadores\\navfirefox.ps1",
+    "line": 86,
+    "text": "                Set-ItemProperty -Path $path -Name $name -Value $value -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\Navegadores\\runASadmin.bat",
+    "line": 3,
+    "text": "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\Navegadores\\runASadmin.bat",
+    "line": 9,
+    "text": "powershell.exe -ExecutionPolicy RemoteSigned -File \"%chromeScriptPath%\""
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\Navegadores\\runASadmin.bat",
+    "line": 10,
+    "text": "powershell.exe -ExecutionPolicy RemoteSigned -File \"%edgeScriptPath%\""
+  },
+  {
+    "file": "SetPolicyWindows\\Client\\Navegadores\\runASadmin.bat",
+    "line": 11,
+    "text": "powershell.exe -ExecutionPolicy RemoteSigned -File \"%firefoxScriptPath%\""
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 4,
+    "text": "            New-Item -Path $registryPath -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 7,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"MicrosoftEventVwrDisableLinks\" -Value \"1\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 11,
+    "text": "            New-Item -Path $registryPath -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 14,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"NoAutorun\" -Value \"1\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 16,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"NoOnlinePrintsWizard\" -Value \"1\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 18,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"NoDriveTypeAutoRun\" -Value \"255\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 19,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"NoAutorun\" -Value \"1\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 23,
+    "text": "            New-Item -Path $registryPath -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 26,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"Windows Error Reporting\" -Value \"1\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 30,
+    "text": "            New-Item -Path $registryPath -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 34,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"DoReport\" -Value \"0\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 38,
+    "text": "            New-Item -Path $registryPath -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 41,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"Headlines\" -Value \"0\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 43,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"MicrosoftKBSearch\" -Value \"0\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 47,
+    "text": "            New-Item -Path $registryPath -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 50,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"DisableContentFileUpdates\" -Value \"1\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 54,
+    "text": "            New-Item -Path $registryPath -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 57,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"DoNotRunDigitalLocker\" -Value \"1\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 61,
+    "text": "            New-Item -Path $registryPath -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 64,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"NoUseStoreOpenWith\" -Value \"1\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 68,
+    "text": "            New-Item -Path $registryPath -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 71,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"PreventHandwritingErrorReports\" -Value \"1\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 75,
+    "text": "            New-Item -Path $registryPath -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 78,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"DontSendAdditionalData\" -Value \"1\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 80,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"Disabled\" -Value \"0\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 83,
+    "text": "            New-Item -Path $registryPath -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 86,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"DisableOnline\" -Value \"1\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 90,
+    "text": "            New-Item -Path $registryPath -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 93,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"AllowRemoteShellAccess\" -Value \"0\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 97,
+    "text": "            New-Item -Path $registryPath -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 100,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"CEIPEnable\" -Value \"1\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 103,
+    "text": "            New-Item -Path $registryPath -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 106,
+    "text": "    Set-ItemProperty -Path $registryPath -Name \"CEIP\" -Value \"2\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 111,
+    "text": "            New-Item -Path $registryPath -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 114,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"ScreenSaveActive\" -Value \"1\" -Type String"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 116,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"ScreenSaverIsSecure\" -Value \"1\" -Type String"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 119,
+    "text": "        Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled True"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 122,
+    "text": "            usoclient StartScan"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 124,
+    "text": "            usoclient StartDownload"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 126,
+    "text": "            usoclient StartInstall"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 128,
+    "text": "            usoclient RestartDevice"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 130,
+    "text": "        Set-MpPreference -DisableRealtimeMonitoring $false"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 134,
+    "text": "        Start-Service -Name WinDefend"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 139,
+    "text": "            New-Item -Path $registryPath -Force }"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 141,
+    "text": "        Set-ItemProperty -Path $registryPath -Name 'AllowNT4Crypto' -Value 0 -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 146,
+    "text": "            New-Item -Path $registryPath -Force }"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 148,
+    "text": "        Set-ItemProperty -Path $registryPath -Name 'DisplayLastLogonInfo' -Value 1 -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 151,
+    "text": "            New-Item -Path $registryPath -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 154,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"Domain Accounts\" -Value 1"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 156,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"Enabled\" -Value 1"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 158,
+    "text": "        Set-ItemProperty -Path \"HKLM:\\SOFTWARE\\Policies\\Microsoft\\Biometrics\" -Name \"Enabled\" -Value 1"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicyV2.ps1",
+    "line": 159,
+    "text": "        Set-ItemProperty -Path \"HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" -Name \"ReportControllerMissing\" -Value 1"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 6,
+    "text": "                auditpol /set /subcategory:\"{0CCE923F-69AE-11D9-BED3-505054503030}\" /success:enable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 8,
+    "text": "                auditpol /set /subcategory:\"Kerberos Authentication Service\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 10,
+    "text": "                auditpol /set /subcategory:\"Kerberos Service Ticket Operations\" /success:disable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 12,
+    "text": "                auditpol /set /subcategory:\"Other Account Logon Events\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 19,
+    "text": "                auditpol /set /subcategory:\"Application Group Management\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 21,
+    "text": "                auditpol /set /subcategory:\"Computer Account Management\" /success:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 23,
+    "text": "                auditpol /set /subcategory:\"Distribution Group Management\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 25,
+    "text": "                auditpol /set /subcategory:\"Other Account Management Events\" /success:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 27,
+    "text": "                auditpol /set /subcategory:\"Security Group Management\" /success:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 29,
+    "text": "                auditpol /set /subcategory:\"User Account Management\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 37,
+    "text": "                auditpol /set /subcategory:\"DPAPI Activity\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 40,
+    "text": "                auditpol /set /subcategory:\"Plug and Play Events\" /success:enable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 42,
+    "text": "                auditpol /set /subcategory:\"Process Creation\" /success:enable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 44,
+    "text": "                auditpol /set /subcategory:\"Process Termination\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 47,
+    "text": "                auditpol /set /subcategory:\"RPC Events\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 50,
+    "text": "                auditpol /set /subcategory:\"Token Right Adjusted Events\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 57,
+    "text": "                auditpol /set /subcategory:\"Detailed Directory Service Replication\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 59,
+    "text": "                auditpol /set /subcategory:\"Directory Service Access\" /success:disable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 61,
+    "text": "                auditpol /set /subcategory:\"Directory Service Changes\" /success:enable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 63,
+    "text": "                auditpol /set /subcategory:\"Directory Service Replication\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 71,
+    "text": "            #     auditpol /set /subcategory:\"Account Logon\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 73,
+    "text": "            #     auditpol /set /subcategory:\"AuditDSAccess\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 75,
+    "text": "            #     auditpol /set /subcategory:\"System Events\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 77,
+    "text": "            #     auditpol /set /subcategory:\"Account Management\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 79,
+    "text": "            #     auditpol /set /subcategory:\"Process Tracking\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 81,
+    "text": "            #     auditpol /set /subcategory:\"Logon/Logoff\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 83,
+    "text": "            #     auditpol /set /subcategory:\"Audit Policy Change\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 85,
+    "text": "            #     auditpol /set /subcategory:\"Object Access\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 87,
+    "text": "            #     auditpol /set /subcategory:\"Privilege Use\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 94,
+    "text": "            auditpol /set /subcategory:\"Group Membership\" /success:enable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 96,
+    "text": "            auditpol /set /subcategory:\"Special Logon\" /success:enable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 98,
+    "text": "            auditpol /set /subcategory:\"Account Lockout\" /success:disable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 100,
+    "text": "            auditpol /set /subcategory:\"User / Device Claims\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 102,
+    "text": "            auditpol /set /subcategory:\"Logoff\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 104,
+    "text": "            auditpol /set /subcategory:\"Logon\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 106,
+    "text": "            auditpol /set /subcategory:\"Other Logon/Logoff Events\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 108,
+    "text": "            auditpol /set /subcategory:\"Network Policy Server\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 110,
+    "text": "            auditpol /set /subcategory:\"IPsec Main Mode\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 112,
+    "text": "            auditpol /set /subcategory:\"IPsec Quick Mode\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 114,
+    "text": "            auditpol /set /subcategory:\"IPsec Extended Mode\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 122,
+    "text": "                auditpol /set /subcategory:\"SAM\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 124,
+    "text": "                auditpol /set /subcategory:\"File System\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 126,
+    "text": "                auditpol /set /subcategory:\"Application Generated\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 128,
+    "text": "                auditpol /set /subcategory:\"Central Policy Staging\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 130,
+    "text": "                auditpol /set /subcategory:\"Certification Services\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 132,
+    "text": "                auditpol /set /subcategory:\"Detailed File Share\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 134,
+    "text": "                auditpol /set /subcategory:\"File Share\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 136,
+    "text": "                auditpol /set /subcategory:\"Filtering Platform Connection\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 138,
+    "text": "                auditpol /set /subcategory:\"Handle Manipulation\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 140,
+    "text": "                auditpol /set /subcategory:\"Filtering Platform Packet Drop\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 142,
+    "text": "                auditpol /set /subcategory:\"Removable Storage\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 144,
+    "text": "                auditpol /set /subcategory:\"Registry\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 146,
+    "text": "                auditpol /set /subcategory:\"Other Object Access Events\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 148,
+    "text": "                auditpol /set /subcategory:\"Kernel Object\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 150,
+    "text": "                auditpol /set /subcategory:\"Central Policy Staging\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 152,
+    "text": "                auditpol /set /subcategory:\"Application Generated\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 154,
+    "text": "                auditpol /set /subcategory:\"Filtering Platform Packet Drop\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 156,
+    "text": "                auditpol /set /subcategory:\"Handle Manipulation\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 158,
+    "text": "                auditpol /set /subcategory:\"Kernel Object\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 160,
+    "text": "                auditpol /set /subcategory:\"Detailed File Share\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 162,
+    "text": "                auditpol /set /subcategory:\"Registry\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 164,
+    "text": "                auditpol /set /subcategory:\"SAM\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 166,
+    "text": "                auditpol /set /subcategory:\"Certification Services\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 168,
+    "text": "                auditpol /set /subcategory:\"File System\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 187,
+    "text": "                auditpol /set /subcategory:\"Audit Policy Change\" /success:enable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 189,
+    "text": "                auditpol /set /subcategory:\"Authentication Policy Change\" /success:enable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 191,
+    "text": "                auditpol /set /subcategory:\"Authorization Policy Change\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 193,
+    "text": "                auditpol /set /subcategory:\"Filtering Platform Policy Change\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 195,
+    "text": "                auditpol /set /subcategory:\"MPSSVC Rule-Level Policy Change\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 197,
+    "text": "                auditpol /set /subcategory:\"Other Policy Change Events\" /success:disable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 206,
+    "text": "                <# auditpol /set /option:\"AuditBaseDirectories\" /value:disabled #>"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 208,
+    "text": "                <# auditpol /set /option:\"AuditBaseObjects\" /value:disabled #>"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 210,
+    "text": "                <# auditpol /set /option:\"CrashOnAuditFail\" /value:disabled #>"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 212,
+    "text": "                <# auditpol /set /option:\"FullPrivilegeAuditing\" /value:disabled #>"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 308,
+    "text": "        secedit.exe /configure /db secedit.sdb /cfg $infFilePath /areas USER_RIGHTS"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 321,
+    "text": "    #        auditpol /set /subcategory:\"Non Sensitive Privilege Use\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 324,
+    "text": "    #        auditpol /set /subcategory:\"Sensitive Privilege Use\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 327,
+    "text": "    #        auditpol /set /subcategory:\"Other Privilege Use Events\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 343,
+    "text": "            # auditpol /set /subcategory:\"Auditar integridad del sistema\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 345,
+    "text": "            # auditpol /set /subcategory:\"Auditar otros eventos del sistema\" /success:enable /failure:enable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 347,
+    "text": "            # auditpol /set /subcategory:\"Auditar controlador IPsec\" /success:disable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 349,
+    "text": "            # auditpol /set /subcategory:\"Auditar extensión del sistema de seguridad\" /success:enable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 351,
+    "text": "            # auditpol /set /subcategory:\"Auditar cambio de estado de seguridad\" /success:enable /failure:disable"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 360,
+    "text": "            New-Item -Path $registryPath -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 362,
+    "text": "        # Set-ItemProperty -Path $registryPath -Name \"SetCommand\" -Value \"0\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 363,
+    "text": "        # Set-ItemProperty -Path $registryPath -Name \"SecurityLevel\" -Value \"0\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 369,
+    "text": "            New-Item -Path $registryPath -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 371,
+    "text": "        # Set-ItemProperty -Path $registryPath -Name \"ForceUnlockLogon\" -Value \"0\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 372,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"ScRemoveOption\" -Value \"1\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 373,
+    "text": "        # Set-ItemProperty -Path $registryPath -Name \"PasswordExpiryWarning\" -Value \"5\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 379,
+    "text": "                    New-Item -Path $registryPath -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 381,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"NoAutorun\" -Value \"1\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 382,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"NoDriveTypeAutoRun\" -Value \"255\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 388,
+    "text": "                    New-Item -Path $registryPath -Force"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 390,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"RunThisTimeEnabled\" -Value \"0\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 391,
+    "text": "        Set-ItemProperty -Path $registryPath -Name \"VersionCheckEnabled\" -Value \"1\" -Type DWord"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SetPolicy_Baseline.ps1",
+    "line": 413,
+    "text": "        @{ registryPath = \"$Path\"; Name = \"DisableAutomaticRestartSignOn\"; Value = \"1\" },"
+  },
+  {
+    "file": "SetPolicyWindows\\Server\\SPrunASadmin.bat",
+    "line": 4,
+    "text": "powershell.exe -ExecutionPolicy RemoteSigned -File \"%scriptPath%\""
+  }
+]
